@@ -7,39 +7,52 @@
     text-align: center;
     justify-content: center;
     justify-items: center;
-    padding-top: 50vh;
-    padding-bottom: 45vh;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+
     font-weight: 700;
     color: #ffffff;
     .larry {
-      font-size: 32px;
       position: absolute;
-      top: 50%;
-      right: 52%;
+      top: 48%;
+      width: fit-content;
+      text-align: center;
+      font-size: 32px;
+      margin-right: 60px;
     }
     .icon {
-      font-size: 60px;
       position: absolute;
-      top: 49%;
-      right: 42%;
+      top: 48%;
+      width: fit-content;
+      text-align: center;
+      font-size: 60px;
+      margin-left: 100px;
     }
     .and {
-      font-size: 32px;
       position: absolute;
-      top: 54%;
-      right: 51%;
+      top: 53%;
+      width: fit-content;
+      text-align: center;
+      font-size: 32px;
     }
     .comrade {
-      font-size: 32px;
       position: absolute;
       top: 57%;
-      right: 40%;
+      width: fit-content;
+      text-align: center;
+      font-size: 32px;
+      margin-left: 50px;
     }
     .logistics {
       position: absolute;
       top: 63%;
-      right: 40%;
+      width: fit-content;
+      text-align: center;
+      font-size: 16px;
       font-weight: 400;
+      margin-left: 150px;
     }
   }
 }
