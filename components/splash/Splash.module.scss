@@ -1,0 +1,45 @@
+.root {
+  background: #5dddb2;
+  width: 100vw;
+  height: 100vh;
+  .container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 50vh;
+    padding-bottom: 45vh;
+    font-weight: 700;
+    color: #ffffff;
+    .larry {
+      font-size: 32px;
+      position: absolute;
+      top: 50%;
+      right: 52%;
+    }
+    .icon {
+      font-size: 60px;
+      position: absolute;
+      top: 49%;
+      right: 42%;
+    }
+    .and {
+      font-size: 32px;
+      position: absolute;
+      top: 54%;
+      right: 51%;
+    }
+    .comrade {
+      font-size: 32px;
+      position: absolute;
+      top: 57%;
+      right: 40%;
+    }
+    .logistics {
+      position: absolute;
+      top: 63%;
+      right: 40%;
+      font-weight: 400;
+    }
+  }
+}
