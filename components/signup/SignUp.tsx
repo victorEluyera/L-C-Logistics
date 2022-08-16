@@ -1,24 +1,32 @@
-import { Button, Form, Input, Space, Typography } from "antd";
+import { Alert, Button, Form, Input, Space, Typography } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { TsignUpPayload } from "./query";
 import styles from "./SignUp.module.scss";
 
 const { Text, Title } = Typography;
 const { Item } = Form;
 
-function SignUp() {
+interface Props {
+  handleSubmit: (val: TsignUpPayload) => void;
+  errorMessage: boolean;
+}
+
+function SignUp(props: Props) {
+  const { handleSubmit, errorMessage } = props;
+
   const router = useRouter();
   return (
     <div className={styles.container}>
       <div className="d-flex justify-space-between">
         <Title className={styles.signup_head}> Sign up </Title>
         <Link href="/login">
-          <a>Login</a>
+          <a className="mt-4">Login</a>
         </Link>
       </div>
       <div className={styles.form}>
-        <SignUpForm />
+        <SignUpForm submit={handleSubmit} errorMessage={errorMessage} />
       </div>
       <div className="text-center ">
         <Space className={styles.info}>
@@ -40,25 +48,43 @@ function SignUp() {
 
 export default SignUp;
 
-export const SignUpForm = () => {
+interface signupFormProps {
+  submit: (val: TsignUpPayload) => void;
+  errorMessage: boolean;
+}
+
+export const SignUpForm = (props: signupFormProps) => {
+  const { submit, errorMessage } = props;
+  const [form] = Form.useForm();
+  const onSubmit = () => {
+    const val = form.getFieldsValue();
+    submit(val);
+  };
+
   return (
     <div className={styles.form}>
-      <Form autoComplete="off">
-        <Item>
-          <Text className={styles.labels}>First Name </Text>
-
+      {errorMessage && (
+        <Alert message="Email has been used by another user " type="error" />
+      )}
+      <Form form={form} onFinish={onSubmit} layout="vertical">
+        <Form.Item
+          name={"firstname"}
+          label={<Text className={styles.labels}>First Name </Text>}
+        >
           <Input bordered={false} placeholder="John" className={styles.input} />
-        </Item>
+        </Form.Item>
 
-        <Item>
-          <Text className={styles.labels}>Last Name</Text>
-
+        <Item
+          name={"lastname"}
+          label={<Text className={styles.labels}>Last Name</Text>}
+        >
           <Input bordered={false} placeholder="Doe" className={styles.input} />
         </Item>
 
-        <Item>
-          <Text className={styles.labels}>Email Address </Text>
-
+        <Item
+          name={"email"}
+          label={<Text className={styles.labels}>Email Address </Text>}
+        >
           <Input
             bordered={false}
             placeholder="johndoe@larrymail.com"
@@ -66,9 +92,10 @@ export const SignUpForm = () => {
           />
         </Item>
 
-        <Item>
-          <Text className={styles.labels}>Phone Number </Text>
-
+        <Item
+          name={"phone"}
+          label={<Text className={styles.labels}>Phone Number </Text>}
+        >
           <Input
             bordered={false}
             placeholder="(+234)"
@@ -76,17 +103,20 @@ export const SignUpForm = () => {
           />
         </Item>
 
-        <Item>
-          <Text className={styles.labels}>Password</Text>
+        <Item
+          name={"passwords"}
+          label={<Text className={styles.labels}>Password</Text>}
+        >
           <Input
             bordered={false}
             placeholder="Please enter at least 8 digits"
             className={styles.input}
           />
         </Item>
-        <Item>
-          <Text className={styles.labels}>Invite (Optional) </Text>
-
+        <Item
+          name="refcode"
+          label={<Text className={styles.labels}>Invite (Optional) </Text>}
+        >
           <Input
             bordered={false}
             placeholder="Please enter your referral invite code"

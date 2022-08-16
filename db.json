@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "firstname": "Victor",
+      "lastname": "Eluyera",
+      "email": "johnsmith@gmail.com",
+      "phone": "123456",
+      "passwords": "passwords",
+      "id": "cff6574b-6655-4141-904a-94d2d40ce347"
+    },
+    {
+      "firstname": "John",
+      "lastname": "Smith",
+      "email": "johnsmith@gmail.com",
+      "phone": "123456",
+      "passwords": "passwords",
+      "id": "7fc61e38-fc18-40f7-8f0a-7fbad199ca7d"
+    },
+    {
+      "firstname": "Victor",
+      "lastname": "Doe",
+      "email": "victordee@gmail.com",
+      "phone": "09876543",
+      "passwords": "passwords",
+      "id": "d530b030-5cac-474b-bd3f-a2f27a4ad26c"
+    }
+  ],
+  "currentusers": [
+    {
+      "email": "johnsmith@gmail.com",
+      "passwords": "passwords",
+      "id": 1
+    },
+    {
+      "email": "johnsmith@gmail.com",
+      "passwords": "passwords",
+      "id": 2
+    }
+  ]
+}
