@@ -19,7 +19,6 @@ function LoginPages() {
     );
     if (verifyUser) {
       mutate(value);
-      // console.log(value);
       router.push("/");
     } else {
       setErrorMessage(true);
