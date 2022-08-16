@@ -1,8 +1,14 @@
+import { Typography } from "antd";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
 
+const { Title, Text } = Typography;
 const Home: NextPage = () => {
-  return <div className={styles.container}>Larry and Comrade</div>;
+  return (
+    <div className="text-center">
+      <Title>Larry and Comrade</Title>
+      <Title level={4}>This pages is coming soon....</Title>
+    </div>
+  );
 };
 
 export default Home;

@@ -1,21 +1,31 @@
-import { Button, Form, Input, Space, Typography } from "antd";
+import { Alert, Button, Form, Input, Space, Typography } from "antd";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
+import { TloginPayload } from "../signup/query";
 import styles from "./Login.module.scss";
 
 const { Text, Title } = Typography;
 const { Item } = Form;
 
-function Login() {
-  const router = useRouter();
+interface Props {
+  handleSubmit: (value: TloginPayload) => void;
+  errorMessage: boolean;
+  isLoading: boolean;
+}
+
+function Login(props: Props) {
+  const { handleSubmit, isLoading, errorMessage } = props;
   return (
     <div className={styles.container}>
       <div className="d-flex justify-space-between">
         <Title className={styles.login_head}> Login </Title>
       </div>
       <div className={styles.form}>
-        <LoginForm />
+        <LoginForm
+          handleSubmit={handleSubmit}
+          errorMessage={errorMessage}
+          isLoading={isLoading}
+        />
       </div>
       <div className="text-center ">
         <Link href="/#">
@@ -35,39 +45,56 @@ function Login() {
 
 export default Login;
 
-export const LoginForm = () => {
+interface LoginProps {
+  handleSubmit: (value: TloginPayload) => void;
+  errorMessage: boolean;
+  isLoading: boolean;
+}
+
+export const LoginForm = (props: LoginProps) => {
+  const { handleSubmit, errorMessage, isLoading } = props;
+  const [form] = Form.useForm();
+
+  const onSubmit = () => {
+    const value = form.getFieldsValue();
+    handleSubmit(value);
+  };
+
   return (
     <div className={styles.form}>
-      <Form autoComplete="off">
-        <Item>
-          <Text className={styles.labels}>Email Address </Text>
-
+      {errorMessage && <Alert message="Invalid Credentials" type="warning" />}
+      <Form form={form} layout="vertical" onFinish={onSubmit}>
+        <Form.Item
+          name={"email"}
+          label={<Text className={styles.labels}>Email Address </Text>}
+        >
           <Input
             bordered={false}
             placeholder="johndoe@larrymail.com"
             className={styles.input}
           />
-        </Item>
+        </Form.Item>
 
-        <Item>
-          <Text className={styles.labels}>Password</Text>
+        <Form.Item
+          name={"passwords"}
+          label={<Text className={styles.labels}>Password</Text>}
+        >
           <Input
             bordered={false}
             placeholder="Please enter at least 8 digits"
             className={styles.input}
           />
-        </Item>
+        </Form.Item>
 
-        <Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            className={styles.Button}
-          >
-            Login
-          </Button>
-        </Item>
+        <Button
+          type="primary"
+          htmlType="submit"
+          block
+          className={styles.Button}
+          loading={isLoading}
+        >
+          Login
+        </Button>
       </Form>
     </div>
   );
