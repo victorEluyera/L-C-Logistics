@@ -1,0 +1,21 @@
+.go_back {
+  background: #5dddb2;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  color: #ffffff;
+  padding-left: 5px;
+  .head {
+    color: #ffffff;
+    margin-top: 15px;
+  }
+  .arrow {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+}
