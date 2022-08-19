@@ -1,0 +1,76 @@
+.root {
+  background: #5dddb2;
+  padding: 20px;
+
+  color: #ffffff;
+
+  .menu {
+    font-size: 40px;
+    color: #ffffff;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .greeting {
+    color: #ffffff;
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: 400;
+  }
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: start;
+  }
+  .wallet {
+    display: block;
+    text-align: end;
+    color: #ffffff;
+    margin-top: 50px;
+    .wallet_text {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+}
+
+.option_text {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 20px;
+  margin-top: 10px;
+  text-align: start;
+  border-bottom: #5dddb2 1px solid;
+  .text {
+    color: #5dddb2;
+  }
+}
+
+.card {
+  border-top: 1px solid #5dddb2;
+  border-bottom: 1px solid #5dddb2;
+  margin-bottom: 5px;
+  .card_icon {
+    color: #5dddb2;
+    size: 50px;
+  }
+  .card_topic {
+    font-size: 24px;
+    font-weight: 700;
+    display: block;
+    text-align: start;
+  }
+  .card_desc {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
