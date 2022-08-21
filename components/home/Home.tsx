@@ -125,7 +125,7 @@ export const HomePageDown = () => {
 };
 
 interface Props {
-  icon: any;
+  icon?: any;
   topic: string;
   description: string;
 }
@@ -136,7 +136,7 @@ export const HomePageCards = (props: Props) => {
     <div className={styles.card}>
       <div className="d-flex justify-space-between">
         <div className="d-flex my-2">
-          <div className={styles.card_icon}>{icon}</div>
+          {icon && <div className={styles.card_icon}>{icon}</div>}
           <div className="d-flex-column ml-10">
             <Text className={styles.card_topic}>{topic}</Text>
             <Text className={styles.card_desc}>{description}</Text>
