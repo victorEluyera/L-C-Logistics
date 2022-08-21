@@ -8,12 +8,7 @@ const { Title, Text } = Typography;
 function Donate() {
   return (
     <div>
-      <div className={styles.go_back}>
-        <BsArrowLeft className={styles.arrow} />
-        <Title level={4} className={styles.head}>
-          Donate
-        </Title>
-      </div>
+      <GoBack title={"Donate"} />
       <div className="pa-5">
         <div className="text-center">
           <Title level={5}>Make a Donation</Title>
@@ -44,3 +39,18 @@ function Donate() {
 }
 
 export default Donate;
+
+interface Props {
+  title: string;
+}
+export const GoBack = (props: Props) => {
+  const { title } = props;
+  return (
+    <div className={styles.go_back}>
+      <BsArrowLeft className={styles.arrow} />
+      <Title level={4} className={styles.head}>
+        {title}
+      </Title>
+    </div>
+  );
+};
