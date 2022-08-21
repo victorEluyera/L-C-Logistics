@@ -35,6 +35,11 @@
       "email": "johnsmith@gmail.com",
       "passwords": "passwords",
       "id": 2
+    },
+    {
+      "email": "johnsmith@gmail.com",
+      "passwords": "passwords",
+      "id": 3
     }
   ]
 }
