@@ -10,10 +10,12 @@ function Shipment() {
       <HomePageCards
         topic={"Ship Now"}
         description={"Book a shipment now! So easy to do"}
+        route={`/ship_now`}
       />
       <HomePageCards
         topic={"Track a shipment"}
         description={"Book a shipment now! So easy to do"}
+        route={`/track_ship`}
       />
 
       <div className="text-center mt-15">

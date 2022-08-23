@@ -1,0 +1,19 @@
+.card {
+  border-top: 1px solid #5dddb2;
+  border-bottom: 1px solid #5dddb2;
+  margin-bottom: 5px;
+  .card_icon {
+    color: #5dddb2;
+    size: 50px;
+  }
+  .card_topic {
+    font-size: 24px;
+    font-weight: 700;
+    display: block;
+    text-align: start;
+  }
+  .card_desc {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

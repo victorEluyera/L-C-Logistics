@@ -1,4 +1,5 @@
 import { Avatar, Drawer, Typography } from "antd";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { AiOutlineRight } from "react-icons/ai";
 import {
@@ -15,9 +16,19 @@ import styles from "./Home.module.scss";
 const { Text, Title } = Typography;
 
 function HomePages() {
+  let greet;
+  if (new Date().getHours() < 12) {
+    greet = "Good Morning ";
+  }
+  if (new Date().getHours() < 16) {
+    greet = "Good Afternoon ";
+  }
+  if (new Date().getHours() > 16) {
+    greet = "Good Evening ";
+  }
   return (
     <div>
-      <HomePageTops />
+      {greet && <HomePageTops greet={greet} />}
       <HomePageDown />
       <NavBar />
     </div>
@@ -26,7 +37,12 @@ function HomePages() {
 
 export default HomePages;
 
-export const HomePageTops = () => {
+interface HomePageTopsProps {
+  greet: string;
+}
+
+export const HomePageTops = (props: HomePageTopsProps) => {
+  const { greet } = props;
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -36,6 +52,7 @@ export const HomePageTops = () => {
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <div className={styles.root}>
       <div>
@@ -61,7 +78,7 @@ export const HomePageTops = () => {
           <div className="d-flex mt-10">
             <Avatar size={80} />
             <div className="d-block">
-              <Text className={styles.greeting}>Good Morning</Text>
+              <Text className={styles.greeting}>{greet}</Text>
               <Text className={styles.name}>Vicky</Text>
             </div>
           </div>
@@ -98,26 +115,31 @@ export const HomePageDown = () => {
           icon={<BsFillWalletFill size={70} />}
           topic={"Wallet"}
           description={"Fund your wallet in two simple steps"}
+          route={`/wallets`}
         />
         <HomePageCards
           icon={<BsCartPlusFill size={70} />}
           topic={"Shipment"}
           description={"Book a shipment now! So easy to do"}
+          route={`/shipment`}
         />
         <HomePageCards
           icon={<BsLockFill size={70} />}
           topic={"Tracking"}
           description={"Track the location of your goods"}
+          route={`/tracking`}
         />
         <HomePageCards
           icon={<FaEnvelopeOpenText size={70} />}
           topic={"Donate"}
           description={"Edit and update your profile"}
+          route={`/donate`}
         />
         <HomePageCards
           icon={<BsFillTelephoneFill size={70} />}
           topic={"Contact Us"}
           description={"Speak or chat with a customer agent"}
+          route={`/contact`}
         />
       </div>
     </div>
@@ -128,12 +150,14 @@ interface Props {
   icon?: any;
   topic: string;
   description: string;
+  route: string;
 }
 
 export const HomePageCards = (props: Props) => {
-  const { icon, topic, description } = props;
+  const { icon, topic, description, route } = props;
+  const router = useRouter();
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={() => router.push(route)}>
       <div className="d-flex justify-space-between">
         <div className="d-flex my-2">
           {icon && <div className={styles.card_icon}>{icon}</div>}

@@ -1,4 +1,5 @@
 import { Typography } from "antd";
+import { useRouter } from "next/router";
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import styles from "./Donate.module.scss";
@@ -44,10 +45,11 @@ interface Props {
   title: string;
 }
 export const GoBack = (props: Props) => {
+  const router = useRouter();
   const { title } = props;
   return (
     <div className={styles.go_back}>
-      <BsArrowLeft className={styles.arrow} />
+      <BsArrowLeft className={styles.arrow} onClick={() => router.back()} />
       <Title level={4} className={styles.head}>
         {title}
       </Title>
