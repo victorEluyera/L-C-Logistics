@@ -2,7 +2,6 @@ import { Typography } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import React from "react";
 import { GoBack } from "../donate/Donate";
-import { HomePageCards } from "../home/Home";
 import styles from "./Wallet.module.scss";
 
 function Wallet() {
@@ -23,14 +22,15 @@ function Wallet() {
           Wallet Funding Options
         </Typography.Text>
       </div>
-      <HomePageCards
+      {/* <HomePageCards
         topic={"Deposit Via Card"}
         description={"Fund your wallet using MasterrCard or Visa"}
+        route={""}
       />
       <HomePageCards
         topic={"Deposit Via Crypto"}
         description={"Connect using TrustWallet or MetaMask"}
-      />
+      /> */}
     </div>
   );
 }
